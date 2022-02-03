@@ -1,0 +1,17 @@
+{
+  "name": "librarymanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-generator": "^4.16.1",
+    "hbs": "^4.2.0"
+  }
+}
