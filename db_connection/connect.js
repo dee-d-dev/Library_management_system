@@ -4,10 +4,14 @@ const connect =(url) =>{mongoose.connect(url, ()=> {
     console.log('database connected')
 })}
 
-const Librarian_Schema = new mongoose.Schema({
-    name: String
+const User_Schema = new mongoose.Schema({
+    name: String,
+    role:{
+        type: String,
+        enum: ['Librarian', 'Staff', 'Student']
+    }
 })
 
-const Librarian = mongoose.model('Librarian', Librarian_Schema)
+const User = mongoose.model('Librarian', User_Schema)
 
-module.exports = {connect,Librarian}
+module.exports = {connect,User}
