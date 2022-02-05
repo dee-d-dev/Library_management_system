@@ -6,10 +6,10 @@ const connect =(url) =>{mongoose.connect(url, ()=> {
 
 const User_Schema = new mongoose.Schema({
     name: String,
-    role:{
-        type: String,
-        enum: ['Librarian', 'Staff', 'Student']
-    }
+    role:String,
+    email: String,
+    age: Number,
+    password: String
 })
 
 const User = mongoose.model('Librarian', User_Schema)
