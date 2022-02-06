@@ -1,17 +1,17 @@
-const {User}= require('../db_connection/connect')
+const User = require("../models/User");
 
-async function createUser(){
+const registerUser = (req, res) => {
+  const user = new User(req.body);
 
-    const user = new User({
-        name: 'user one',
-        role: 'Librarian',
-        emaiil:'userone@gmail.com',
-        age: 45,
-        password: '4567'
+  user
+    .save()
+    .then((user) => {
+      console.log(user);
+      res.send(user);
     })
-    
-    const result = await user.save()
-    console.log(result)
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
-createUser()
+module.exports = registerUser;
