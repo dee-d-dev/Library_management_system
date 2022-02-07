@@ -18,11 +18,13 @@ const registerUser = async (req, res) => {
     });
 
   //create token
-  const token = jwt.sign({ data: user.name }, process.env.TOKEN_KEY, {
-    expiresIn: 500,
-  });
+  if (user.role == "librarian") {
+    const token = jwt.sign({ data: user.name }, process.env.TOKEN_KEY, {
+      expiresIn: 500,
+    });
 
-  user.token = token;
+    user.token = token;
+  }
 };
 
 module.exports = registerUser;
