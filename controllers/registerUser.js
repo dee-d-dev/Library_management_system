@@ -11,28 +11,28 @@ const registerUser = async (req, res) => {
   const userExists = await User.findOne({ email });
   const result = authSchema.validateAsync(req.body);
 
+  if (!userExists) {
+    user.password = hashedPassword;
+    user
+      .save()
+      .then((user) => {
+        // console.log(user);
+        res.status(201).send(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-  if (userExists) {
+    //create token
+    if (user.role == "librarian") {
+      const token = jwt.sign({ data: user.name }, process.env.TOKEN_KEY, {
+        expiresIn: 500,
+      });
+
+      user.token = token;
+    }
+  } else {
     res.status(400).send("this email has alrady been registered");
-  }
-  user.password = hashedPassword;
-  user
-    .save()
-    .then((user) => {
-      // console.log(user);
-      res.status(201).send(user);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  //create token
-  if (user.role == "librarian") {
-    const token = jwt.sign({ data: user.name }, process.env.TOKEN_KEY, {
-      expiresIn: 500,
-    });
-
-    user.token = token;
   }
 };
 
