@@ -25,6 +25,7 @@ const registerUser = async (req, res) => {
 
     user.token = token;
   }
+  user.token = null;
 };
 
 module.exports = registerUser;
