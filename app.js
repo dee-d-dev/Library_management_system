@@ -4,11 +4,14 @@ const app = express();
 require("dotenv").config();
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/registerUser");
+const getAllUsers = require("./routes/getAllUsers");
 
 app.use(express.json());
 connect(process.env.MONGO_URI);
+
 app.use("/", loginRouter);
 app.use("/", registerRouter);
+app.use("/", getAllUsers);
 
 app.listen(6060, () => {
   console.log("running");
