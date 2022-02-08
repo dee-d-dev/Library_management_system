@@ -1,5 +1,5 @@
 const getUsers = (req, res) => {
-  res.send("all users");
+  res.send("Get Users");
 };
 
 module.exports = getUsers;
