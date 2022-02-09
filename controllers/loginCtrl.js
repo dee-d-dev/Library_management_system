@@ -19,13 +19,16 @@ const LoginCtrl = async (req, res) => {
         { data: user.name, iss: "adedotun" },
         process.env.TOKEN_KEY,
         {
-          expiresIn: 500,
+          expiresIn: "1h",
         }
       );
 
       user.token = token;
-      res.send(token);
+      return res
+        .header("bearer", token)
+        .send({ role: user.role, token: token });
     }
+    res.send({ role: user.role, token: null });
   } else {
     res.send("incorrect email or password");
   }
