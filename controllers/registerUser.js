@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
 
     //create token
     if (user.role == "librarian") {
-      const token = jwt.sign({ data: user.name }, process.env.TOKEN_KEY, {
+      const token = jwt.sign({ data: user.name, iss: 'adedotun'}, process.env.TOKEN_KEY, {
         expiresIn: 500,
       });
 

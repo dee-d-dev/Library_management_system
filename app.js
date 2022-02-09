@@ -12,9 +12,10 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 connect(process.env.MONGO_URI);
 
-app.use("/api/login", loginRouter);
-app.use("/api/reg", registerRouter);
-app.use("/api/allusers", getUsersRouter);
+app.use("/auth", loginRouter);
+app.use("/auth", registerRouter);
+app.use("/users", getUsersRouter);
+
 app.use(notFound);
 app.use(errorHndlr);
 

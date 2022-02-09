@@ -1,7 +1,7 @@
 const createError = require("http-errors");
 
 const notFound = (req, res, next) => {
-  next(createError.NotFound("eweeh"));
+  next(createError.NotFound());
 };
 
 const errorHndlr = (err, req, res, next) => {
