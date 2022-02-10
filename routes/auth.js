@@ -3,20 +3,22 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const verifyAccessToken = (req, res, next) => {
-  const token = req.header("authorization");
+  const bearerToken = req.header("authorization").split(" ");
+  const token = bearerToken[1];
+
   if (!token) {
-    return next(createError.Unauthorized());
+    // return next(createError.Unauthorized());
+    res.send("no token boss");
   }
 
-  try {
-    const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-
-    req.user = decoded;
-
-    next();
-    // console.log(decoded.data);
-  } catch (err) {
-    return next(createError.Unauthorized("You cannot access this route"));
+  if (token) {
+    jwt.verify(token, process.env.TOKEN_KEY, function (err, decoded) {
+      if (err) {
+        return res.send("not allowed");
+      }
+      req.decoded = decoded;
+      next();
+    });
   }
 };
 

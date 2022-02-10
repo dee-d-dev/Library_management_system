@@ -24,11 +24,9 @@ const LoginCtrl = async (req, res) => {
       );
 
       user.token = token;
-      return res
-        .header("bearer", token)
-        .send({ role: user.role, token: token });
+      res.header("bearer", token).send({ role: user.role, token: token });
     }
-    res.send({ role: user.role, token: null });
+    return res.send({ role: user.role, token: user.token });
   } else {
     res.send("incorrect email or password");
   }

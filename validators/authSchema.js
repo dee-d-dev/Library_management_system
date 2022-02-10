@@ -10,6 +10,8 @@ const authSchema = joi.object({
   token:joi.string(),
 });
 
+authSchema.validateAsync()
+
 module.exports = authSchema
 
 

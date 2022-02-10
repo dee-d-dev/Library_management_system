@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const authSchema = require("../validators/authSchema");
+
 const User_Schema = new mongoose.Schema({
   name: { type: String, required: true },
   role: {
