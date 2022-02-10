@@ -1,5 +1,5 @@
 const getAuthors = (req, res) => {
-  res.send("Get Users");
+  res.send("Get Authors");
 };
 
 module.exports = getAuthors;

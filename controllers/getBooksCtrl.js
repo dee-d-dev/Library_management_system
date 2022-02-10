@@ -1,5 +1,5 @@
 const getBooks = (req, res) => {
-  res.send("Get Users");
+  res.send("Get Books");
 };
 
 module.exports = getBooks;

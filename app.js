@@ -5,6 +5,8 @@ require("dotenv").config();
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/registerUser");
 const getUsersRouter = require("./routes/getUsers");
+const getAuthorsRouter = require("./routes/getAuthors");
+const getBooksRouter = require("./routes/getBooks");
 const bodyParser = require("body-parser");
 const { notFound, errorHndlr } = require("./errors/error-handler");
 
@@ -15,6 +17,8 @@ connect(process.env.MONGO_URI);
 app.use("/auth", loginRouter);
 app.use("/auth", registerRouter);
 app.use("/users", getUsersRouter);
+app.use("/authors", getAuthorsRouter);
+app.use("/users", getBooksRouter);
 
 app.use(notFound);
 app.use(errorHndlr);
