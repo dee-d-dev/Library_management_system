@@ -18,7 +18,7 @@ app.use("/auth", loginRouter);
 app.use("/auth", registerRouter);
 app.use("/users", getUsersRouter);
 app.use("/authors", getAuthorsRouter);
-app.use("/users", getBooksRouter);
+app.use("/books", getBooksRouter);
 
 app.use(notFound);
 app.use(errorHndlr);
