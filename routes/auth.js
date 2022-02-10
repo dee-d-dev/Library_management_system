@@ -1,20 +1,23 @@
 const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const verifyAccessToken = (req, res, next) => {
-  if (!req.header("authorization")) {
+  const token = req.header("authorization");
+  if (!token) {
     return next(createError.Unauthorized());
   }
 
-  bearerToken = req.header("authorization");
-  jwt.verify(bearerToken, process.env.TOKEN_KEY, (err, data) => {
-    if (err) {
-      return next(createError.Unauthorized("You cannot access this route"));
-    }
-    req.user = data;
+  try {
+    const decoded = jwt.verify(token, process.env.TOKEN_KEY);
+
+    req.user = decoded;
+
     next();
     // console.log(decoded.data);
-  });
+  } catch (err) {
+    return next(createError.Unauthorized("You cannot access this route"));
+  }
 };
 
 module.exports = verifyAccessToken;
