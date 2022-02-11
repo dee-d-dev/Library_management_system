@@ -21,7 +21,7 @@ const LoginCtrl = async (req, res) => {
     { data: user.name, iss: "adedotun" },
     process.env.TOKEN_KEY,
     {
-      expiresIn: "1h",
+      expiresIn: "20s",
     }
   );
 
