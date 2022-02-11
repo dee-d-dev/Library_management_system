@@ -9,7 +9,7 @@ const getAuthorsRouter = require("./routes/getAuthors");
 const getBooksRouter = require("./routes/getBooks");
 const bodyParser = require("body-parser");
 const { notFound, errorHndlr } = require("./errors/error-handler");
-const getUserProfile = require("./controllers/getUserProfileCtrl");
+const getUserProfile = require("./routes/getUserProfile");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));

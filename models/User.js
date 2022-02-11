@@ -12,7 +12,7 @@ const User_Schema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   age: { type: Number, required: true },
   password: { type: String, required: true },
-  bookIsuued: { type: Array },
+  bookIssued: { type: Array },
   dateCreated: { type: Date, default: Date.now() },
   token: { type: String, default: null },
 });
