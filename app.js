@@ -13,6 +13,7 @@ const getUserProfile = require("./routes/getUserProfile");
 const updateUser = require("./routes/updateUser");
 const deleteUser = require("./routes/deleteUser");
 const deleteBook = require("./routes/deleteBook");
+const getBook = require("./routes/getBook");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,6 +24,7 @@ app.use("/auth", registerRouter);
 app.use("/users", getUsersRouter);
 app.use("/authors", getAuthorsRouter);
 app.use("/books", getBooksRouter);
+app.use("/book", getBook);
 app.use("/user", getUserProfile);
 app.use("/user/update", updateUser);
 app.use("/user/delete", deleteUser);
