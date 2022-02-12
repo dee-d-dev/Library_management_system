@@ -10,6 +10,7 @@ const getBooksRouter = require("./routes/getBooks");
 const bodyParser = require("body-parser");
 const { notFound, errorHndlr } = require("./errors/error-handler");
 const getUserProfile = require("./routes/getUserProfile");
+const updateUser = require("./routes/updateUser");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +22,7 @@ app.use("/users", getUsersRouter);
 app.use("/authors", getAuthorsRouter);
 app.use("/books", getBooksRouter);
 app.use("/user", getUserProfile);
+app.use("/user/profile", updateUser);
 
 app.use(notFound);
 app.use(errorHndlr);
