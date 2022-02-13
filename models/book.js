@@ -6,7 +6,11 @@ const bookSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   pages: { type: Number, required: true },
   quantity: { type: Number, required: true },
-  author: { type: [String], lowercase: true, required: true },
+  author: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Author",
+    required: true,
+  },
 });
 
 const Book = mongoose.model("book", bookSchema);
