@@ -1,10 +1,11 @@
-// const User = require("../models/user");
+const Book = require("../models/book");
 
-const deleteBook = (req, res) => {
-  //   const book = await User.findByIdAndDelete();
+const deleteBook = async (req, res) => {
+  const { title } = req.body;
+  const book = await Book.findOneAndDelete({ title });
+  if (!book) return res.send(`The book to be deleted does not exist in the Library`);
 
-  //   res.send(book);
-  res.send("delete books");
+  return res.send(`deleted ${title} book from the Library`);
 };
 
 module.exports = deleteBook;

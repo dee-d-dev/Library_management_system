@@ -34,7 +34,7 @@ app.use("/library", getBook);
 app.use("/user", getUserProfile);
 app.use("/user/update", updateUser);
 app.use("/user/delete", deleteUser);
-app.use("/book/delete", deleteBook);
+app.use("/delete", deleteBook);
 app.use("/author", createAuthor);
 app.use("/author/update", updateAuthor);
 app.use("/user/profile", logOut);
