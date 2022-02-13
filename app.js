@@ -30,7 +30,7 @@ app.use("/users", getUsersRouter);
 app.use("/authors", getAuthorsRouter);
 app.use("/author", getAuthor);
 app.use("/books", getBooksRouter);
-app.use("/book", getBook);
+app.use("/library", getBook);
 app.use("/user", getUserProfile);
 app.use("/user/update", updateUser);
 app.use("/user/delete", deleteUser);
