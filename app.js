@@ -19,6 +19,7 @@ const createAuthor = require("./routes/createAuthor");
 const updateAuthor = require("./routes/updateAuthor");
 const logOut = require("./routes/logout");
 const createBook = require("./routes/createBook");
+const getBooks = require("./routes/getBooks");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,6 +32,7 @@ app.use("/authors", getAuthorsRouter);
 app.use("/author", getAuthor);
 app.use("/books", getBooksRouter);
 app.use("/library", getBook);
+app.use("/books", getBooks);
 app.use("/user", getUserProfile);
 app.use("/user/update", updateUser);
 app.use("/user/delete", deleteUser);
