@@ -1,7 +1,7 @@
 const createBook = require("../controllers/createBook");
 
-const route = require("express").Router();
+const router = require("express").Router();
 
-route.get("/book", createBook);
+router.get("/book", createBook);
 
 module.exports = router;
