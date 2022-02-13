@@ -9,7 +9,7 @@ const createBook = async (req, res) => {
   }
   book.save((err) => {
     if (err) return res.send(err.message);
-    return res.send(book);
+    return res.send(book).populate("author");
   });
 };
 
