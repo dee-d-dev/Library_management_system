@@ -2,9 +2,9 @@ const { type } = require("express/lib/response");
 const mongoose = require("mongoose");
 
 const authorSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  books: { type: [String], required: true },
-  email: { type: String, required: true },
+  name: { type: String, lowercase: true, required: true },
+  books: { type: [String], lowercase: true, required: true },
+  email: { type: String, lowercase: true, required: true },
   quantity: { type: Number, required: true },
 });
 
