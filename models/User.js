@@ -15,7 +15,6 @@ const User_Schema = new mongoose.Schema({
   bookIssued: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: "book",
-    required: true,
   },
   dateCreated: { type: Date, default: Date.now() },
   token: { type: String, default: null },

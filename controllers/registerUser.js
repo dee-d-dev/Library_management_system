@@ -20,6 +20,7 @@ const registerUser = async (req, res, next) => {
           res.status(201).send(user);
         })
         .catch((err) => {
+          res.send(err._message)
           console.log(err);
         });
     } else {
