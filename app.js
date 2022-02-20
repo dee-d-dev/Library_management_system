@@ -21,6 +21,7 @@ const logOut = require("./routes/logout");
 const createBook = require("./routes/createBook");
 const getBooks = require("./routes/getBooks");
 const updateBook = require("./routes/updateBook");
+const issueBook = require("./routes/issueBook");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,6 +44,7 @@ app.use("/author/update", updateAuthor);
 app.use("/user/profile", logOut);
 app.use("/create", createBook);
 app.use("/book", updateBook);
+app.use("/book", issueBook);
 
 app.use(notFound);
 app.use(errorHndlr);

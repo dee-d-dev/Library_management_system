@@ -21,7 +21,7 @@ const LoginCtrl = async (req, res) => {
     { data: user.name, iss: "adedotun" },
     process.env.TOKEN_KEY,
     {
-      expiresIn: "30m",
+      expiresIn: "24h",
     }
   );
 
@@ -29,4 +29,4 @@ const LoginCtrl = async (req, res) => {
   res.header("bearer", token).send(token);
 };
 
-module.exports = LoginCtrl;
+module.exports = {LoginCtrl}
