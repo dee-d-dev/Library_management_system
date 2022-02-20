@@ -8,7 +8,7 @@ const issueBook = async (req, res) => {
       bookIssued: req.body._id,
     },
     { new: true }
-  ).select("_id name role email bookIssued");
+  );
 
   res.send(users);
 };
