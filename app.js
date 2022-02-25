@@ -52,3 +52,5 @@ app.use(errorHndlr);
 app.listen(6060, () => {
   console.log("running");
 });
+
+module.exports = app;

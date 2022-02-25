@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "jest": "^27.5.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.0"
+    "mongoose": "^6.2.0",
+    "supertest": "^6.2.2"
   }
 }
